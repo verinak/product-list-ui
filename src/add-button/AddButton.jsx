@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import CartIcon from "../assets/add_shopping_cart.svg";
 
 function AddButton({ productId, productTitle }) {
     function handleClick() {
@@ -7,11 +8,12 @@ function AddButton({ productId, productTitle }) {
 
     return (
         <button
-            className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded"
+            className="bg-gray-800 hover:bg-gray-900 text-white font-bold p-3 rounded-full"
             type="button"
             onClick={handleClick}
         >
-            Add to Cart
+            <img src={CartIcon} alt="cart" className="w-5 h-5 block " />
+            {console.log(CartIcon)}
         </button>
     );
 }
