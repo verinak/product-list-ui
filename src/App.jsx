@@ -1,121 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+// import { useState } from "react";
+import "./App.css";
+import ProductCard from "./product-card/ProductCard";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const products = [
+        {
+            id: 101,
+            title: "SonicBlast Wireless Earbuds",
+            brand: "AuraSound",
+            price: 89.99,
+            description:
+                "True wireless earbuds with active noise cancellation and 30-hour battery life.",
+            image: "https://fake-img.com",
+        },
+        {
+            id: 102,
+            title: "PixelView 27-inch 4K Monitor",
+            brand: "VisionTech",
+            price: 349.5,
+            description:
+                "Ultra-HD IPS display with 144Hz refresh rate and HDR10 support for professional editing.",
+            image: "https://fake-img.com",
+        },
+        {
+            id: 103,
+            title: "Titan Pro Mechanical Keyboard",
+            brand: "KeyForge",
+            price: 120.0,
+            description:
+                "RGB backlit mechanical keyboard with hot-swappable switches and brushed aluminum frame.",
+            image: "https://fake-img.com",
+        },
+        {
+            id: 104,
+            title: "NovaTab 10 Plus",
+            brand: "Stellar",
+            price: 299.0,
+            description:
+                "Slim 10-inch tablet with a crystal-clear OLED screen and expandable storage.",
+            image: "https://fake-img.com",
+        },
+        {
+            id: 105,
+            title: "StreamMaster 1080p Webcam",
+            brand: "OpticFlow",
+            price: 65.0,
+            description:
+                "High-definition webcam with autofocus and dual noise-reducing microphones.",
+            image: "https://fake-img.com",
+        },
+        {
+            id: 106,
+            title: "PowerGrid Portable Power Bank",
+            brand: "VoltCore",
+            price: 45.99,
+            description:
+                "20,000mAh high-capacity charger with USB-C PD fast charging.",
+            image: "https://fake-img.com",
+        },
+    ];
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    return (
+        <main>
+            <h1>Products</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {products.map((product) => (
+                    // <p>{product.title}</p>
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                    ></ProductCard>
+                ))}
+            </div>
+        </main>
+    );
 }
 
-export default App
+export default App;
